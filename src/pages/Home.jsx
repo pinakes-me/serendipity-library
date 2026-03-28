@@ -73,7 +73,7 @@ const Home = () => {
             
             return (
               <div key={category} style={{ marginBottom: '4rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem', padding: '0 1rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem', padding: '0 1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
                   <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                     <span style={{ color: categoryInfo?.color || 'var(--accent-color)', fontFamily: 'var(--font-serif-kr)', fontWeight: 700 }}>
                       {category}
@@ -89,7 +89,7 @@ const Home = () => {
                         letterSpacing: '0.02em',
                         border: '1px solid rgba(255,255,255,0.05)'
                       }}>
-                        스크롤을 좌우로 움직여 보세요!
+                        좌우로 스크롤해 보세요!
                       </span>
                     )}
                     <Link to={`/category/${category}`} style={{
@@ -100,7 +100,7 @@ const Home = () => {
                       textDecoration: 'none',
                       transition: 'opacity 0.2s'
                     }} onMouseOver={e => e.currentTarget.style.opacity = '0.8'} onMouseOut={e => e.currentTarget.style.opacity = '1'}>
-                      서가 더 보기 <ChevronRight size={16} />
+                      더 보기 <ChevronRight size={16} />
                     </Link>
                   </div>
                 </div>

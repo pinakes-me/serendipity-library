@@ -94,8 +94,8 @@ const BookCard = ({ book }) => {
     <div 
       className="glass-panel hover-lift"
       style={{ 
-        minWidth: '320px', 
-        maxWidth: '320px', 
+        minWidth: 'min(320px, 85vw)', 
+        maxWidth: 'min(320px, 85vw)', 
         height: isExpanded ? 'auto' : '420px',
         minHeight: '420px',
         padding: '2rem',
