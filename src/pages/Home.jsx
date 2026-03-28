@@ -100,7 +100,7 @@ const Home = () => {
                       textDecoration: 'none',
                       transition: 'opacity 0.2s'
                     }} onMouseOver={e => e.currentTarget.style.opacity = '0.8'} onMouseOut={e => e.currentTarget.style.opacity = '1'}>
-                      더 보기 <ChevronRight size={16} />
+                      서가 더 보기 <ChevronRight size={16} />
                     </Link>
                   </div>
                 </div>
@@ -147,7 +147,7 @@ const Home = () => {
               borderRadius: '50%', 
               animation: 'spin 1s linear infinite' 
             }} />
-            서고에서 더 많은 영감을 가져오는 중...
+            서가에서 더 많은 영감을 가져오는 중...
           </div>
         )}
       </div>
