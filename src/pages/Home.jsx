@@ -73,8 +73,8 @@ const Home = () => {
             
             return (
               <div key={category} style={{ marginBottom: '4rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem', padding: '0 1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
-                  <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem', padding: '0 1rem', gap: '0.5rem', flexWrap: 'wrap', minWidth: 0 }}>
+                  <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
                     <span style={{ color: categoryInfo?.color || 'var(--accent-color)', fontFamily: 'var(--font-serif-kr)', fontWeight: 700 }}>
                       {category}
                     </span>
