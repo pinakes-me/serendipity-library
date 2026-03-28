@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/nlk/:path*",
+      "destination": "https://www.nl.go.kr/:path*"
+    }
+  ]
+}
