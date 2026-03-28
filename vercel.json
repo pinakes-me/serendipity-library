@@ -2,7 +2,11 @@
   "rewrites": [
     {
       "source": "/api/nlk/:path*",
-      "destination": "https://www.nl.go.kr/:path*"
+      "destination": "https://nl.go.kr/:path*"
+    },
+    {
+      "source": "/naver-api/:path*",
+      "destination": "https://openapi.naver.com/:path*"
     }
   ]
 }
