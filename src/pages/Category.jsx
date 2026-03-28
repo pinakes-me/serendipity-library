@@ -21,8 +21,8 @@ const HorizontalShelf = ({ title, books, color }) => {
 
   return (
     <div style={{ marginBottom: '4rem' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem', padding: '0 1rem' }}>
-        <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem', padding: '0 1rem', gap: '0.5rem', flexWrap: 'wrap', minWidth: 0 }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
           <span style={{ color: color || 'var(--accent-color)', fontFamily: 'var(--font-serif-kr)', fontWeight: 700 }}>
             {title}
           </span>
@@ -37,7 +37,7 @@ const HorizontalShelf = ({ title, books, color }) => {
             border: '1px solid rgba(255,255,255,0.05)',
             letterSpacing: '0.02em'
           }}>
-            스크롤을 좌우로 움직여 보세요!
+            좌우로 스크롤해 보세요!
           </span>
         )}
       </div>
