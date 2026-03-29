@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect } from 'react';
+import React, { useMemo, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import BookCard from '../components/BookCard';
@@ -14,10 +14,22 @@ const KDC_MAIN_LABELS = {
 
 // 공유 가로 스크롤 서가 컴포넌트
 const HorizontalShelf = ({ title, books, color }) => {
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
+  useEffect(() => {
+    const update = () => {
+      const next = window.innerWidth < 640;
+      setIsMobile(prev => (prev === next ? prev : next));
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+  
   if (!books || books.length === 0) return null;
-
   const booksToShow = books.slice(0, 10);
-  const showScrollHint = booksToShow.length >= 4;
+  const showScrollHint = isMobile
+    ? booksToShow.length >= 2
+    : booksToShow.length >= 4;
 
   return (
     <div style={{ marginBottom: '4rem' }}>

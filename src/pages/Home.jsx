@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Trophy, Compass, Star, ChevronRight, Hash } from 'lucide-react';
 import ShelfRow from '../components/ShelfRow';
@@ -7,6 +7,17 @@ import { useLibraryBooks } from '../hooks/useLibraryBooks';
 
 const Home = () => {
   const { books, loading, isFetchingMore, error } = useLibraryBooks();
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
+
+  useEffect(() => {
+    const update = () => {
+      const next = window.innerWidth < 640;
+      setIsMobile(prev => (prev === next ? prev : next));
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
 
   // Sort and group books by main category (000, 100, 200, etc.)
   const booksByCategory = {};
@@ -70,6 +81,9 @@ const Home = () => {
           activeMainCategories.map(category => {
             const categoryInfo = kdcCategories.find(c => c.code === category);
             const categoryName = categoryInfo ? categoryInfo.name : `${category} 분류`;
+            const showScrollHint = isMobile
+              ? booksByCategory[category].length >= 2
+              : booksByCategory[category].length >= 4;
             
             return (
               <div key={category} style={{ marginBottom: '4rem' }}>
@@ -81,7 +95,7 @@ const Home = () => {
                     {categoryName}
                   </h2>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
-                    {booksByCategory[category].length >= 4 && (
+                    {showScrollHint && (
                       <span style={{ 
                         background: 'rgba(255,255,255,0.05)', 
                         padding: '0.35rem 0.85rem', 
